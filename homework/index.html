@@ -1,0 +1,115 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link href="main.css" rel="stylesheet">
+
+    <title>Go Shopping!</title>
+
+</head>
+
+<body>
+    <!--모달팝업-->
+    <div class="black-bg" id="modal">
+        <div class="white-bg">
+            <h4 id="title">로그인하세요</h4>
+            <form action="login.php" name="form" onsubmit="return chkBlank()">
+                <input type="email" class="form-control" name="email" id="email" placeholder="이메일 주소를 입력하세요" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                <input type="password" class="form-control" name="password" placeholder="비밀번호를 입력하세요">
+                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+            </form>
+            <button id="close">닫기</button>
+        </div>
+    </div>
+
+    <!--내비게이션바-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">쇼핑하세요</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <h1 class="display-4">吟風弄月 : [음풍농월]</h1>
+        <p class="lead">맑은 바람과 밝은 달 속에서 시를 지으며 즐기다.</p>
+        <hr class="my-4">
+        <p>인생을 즐기기 위해, 마음껏 쇼핑하고 마음껏 소비하세요 :)</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button" id="loginBtn">로그인</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button" id="joinBtn">가입하기</a>
+    </div>
+
+    <script>
+        // 로그인 버튼
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('title').innerHTML = '로그인해주세요';
+        });
+
+        // 가입하기 버튼
+        document.getElementById('joinBtn').addEventListener('click', function() {
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('title').innerHTML = '가입해주세요';
+
+        });
+
+        // 닫기 버튼
+        document.getElementById('close').addEventListener('click', function() {
+            document.getElementById('modal').style.display = 'none';
+        });
+
+
+        // email 유효성 검사
+        const regData = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+        // email 공백 검사
+
+        function chkBlank() {
+            var emailChk = document.forms["form"]["email"].value;
+            var pwChk = document.forms["form"]["password"].value;
+
+            if (emailChk == "") {
+                alert('이메일을 입력해주세요!');
+                return false;
+            } else if (pwChk == 0) {
+                alert('비밀번호를 입력해주세요!');
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+
+
+
+
+</body></html>
