@@ -117,6 +117,12 @@
         document.getElementById('title1').innerHTML = products[0].title;
         document.getElementById('price1').innerHTML = products[0].price;
 
+        document.getElementById('title2').innerHTML = products[1].title;
+        document.getElementById('price2').innerHTML = products[1].price;
+
+        document.getElementById('title3').innerHTML = products[2].title;
+        document.getElementById('price3').innerHTML = products[2].price;
+
         //products 라는 array 안에 있는 object{} 데이터 3개를 가격 낮은 순으로 정렬하려면 어떻게 코드를 짜야할까요?
     </script>
     <script>
@@ -163,13 +169,12 @@
 
 
         //모달 검은 배경 누르면 닫히는 기능 (로그인 버튼을 누르면 모달창이 떠, 근데 다른데 누르면 그대로 있고 바깥에 검은 바탕을 누르면 창이 닫히는 기능)
-        function blockClose(e) {
+
+
+        document.getElementById('modal').addEventListener('click', function(e) {
             e.stopPropagation();
-        };
-        
-        document.getElementById('modal').addEventListener('click', function() {
-            blockClose();
-            if(event.target == 'modal'){
+
+            if (e.target == document.getElementById('modal')) {
                 document.getElementById('modal').style.display = 'none';
             };
         });
