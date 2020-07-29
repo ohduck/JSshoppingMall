@@ -67,23 +67,26 @@
         <a class="btn btn-primary btn-lg" href="#" role="button" id="loginBtn">로그인</a>
         <a class="btn btn-primary btn-lg" href="#" role="button" id="joinBtn">가입하기</a>
     </div>
+    <select id="selectNumber">
+        <option>Choose a number</option>
+    </select>
 
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <img src="pic1.jpg" width="100%">
+                <h4 class="my-3" id="title0">상품1제목</h4>
+                <p>가격 $<span id="price0">??</span></p>
+            </div>
+            <div class="col-md-4">
+                <img src="pic2.jpg" width="100%">
                 <h4 class="my-3" id="title1">상품1제목</h4>
                 <p>가격 $<span id="price1">??</span></p>
             </div>
             <div class="col-md-4">
-                <img src="pic2.jpg" width="100%">
+                <img src="pic3.jpg" width="100%">
                 <h4 class="my-3" id="title2">상품1제목</h4>
                 <p>가격 $<span id="price2">??</span></p>
-            </div>
-            <div class="col-md-4">
-                <img src="pic3.jpg" width="100%">
-                <h4 class="my-3" id="title3">상품1제목</h4>
-                <p>가격 $<span id="price3">??</span></p>
             </div>
         </div>
     </div>
@@ -114,16 +117,40 @@
             }
         ];
 
-        document.getElementById('title1').innerHTML = products[0].title;
-        document.getElementById('price1').innerHTML = products[0].price;
+        for (i = 0; i < 3; i++) {
+            document.getElementById('title' + i).innerHTML = products[i].title;
+            document.getElementById('price' + i).innerHTML = products[i].price;
+        };
 
-        document.getElementById('title2').innerHTML = products[1].title;
-        document.getElementById('price2').innerHTML = products[1].price;
-
-        document.getElementById('title3').innerHTML = products[2].title;
-        document.getElementById('price3').innerHTML = products[2].price;
 
         //products 라는 array 안에 있는 object{} 데이터 3개를 가격 낮은 순으로 정렬하려면 어떻게 코드를 짜야할까요?
+
+        //        products.sort(function(a,b){
+        //            return a.price - b.price;
+        //        });
+        //        console.log(products);
+
+        // '가격 낮은 순'을 선택하면, 가격이 낮은 순대로 products 내용들이 정렬이 된다음에 그 순서대로 상품들이 정렬이 되어 보여져야 함
+        var select = document.getElementById("selectNumber");
+        var options = ["가격 낮은 순", "상품 가나다 순"];
+        for (var i = 0; i < options.length; i++) {
+            var opt = options[i];
+            var el = document.createElement("option");
+            el.textContent = opt;
+            el.value = opt;
+            select.appendChild(el);
+        };
+
+        if (el.value == opt) {
+            products.sort(function(a, b) {
+                return a.price - b.price;
+                for (i = 0; i < 3; i++) {
+                    document.getElementById('title' + i).innerHTML = products[i].title;
+                    document.getElementById('price' + i).innerHTML = products[i].price;
+                };
+
+            });
+        };
     </script>
     <script>
         // 로그인 버튼
