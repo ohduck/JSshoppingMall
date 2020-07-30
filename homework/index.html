@@ -67,9 +67,13 @@
         <a class="btn btn-primary btn-lg" href="#" role="button" id="loginBtn">로그인</a>
         <a class="btn btn-primary btn-lg" href="#" role="button" id="joinBtn">가입하기</a>
     </div>
-    <select id="selectNumber">
-        <option>Choose a number</option>
-    </select>
+
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" id="low">낮은 가격 순</button>
+        <button type="button" class="btn btn-secondary" id="abc">상품명 가나다 순</button>
+        <button type="button" class="btn btn-secondary" id="300">300달러 이하만 보기</button>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -122,35 +126,43 @@
             document.getElementById('price' + i).innerHTML = products[i].price;
         };
 
-
         //products 라는 array 안에 있는 object{} 데이터 3개를 가격 낮은 순으로 정렬하려면 어떻게 코드를 짜야할까요?
 
-        //        products.sort(function(a,b){
-        //            return a.price - b.price;
-        //        });
-        //        console.log(products);
 
-        // '가격 낮은 순'을 선택하면, 가격이 낮은 순대로 products 내용들이 정렬이 된다음에 그 순서대로 상품들이 정렬이 되어 보여져야 함
-        var select = document.getElementById("selectNumber");
-        var options = ["가격 낮은 순", "상품 가나다 순"];
-        for (var i = 0; i < options.length; i++) {
-            var opt = options[i];
-            var el = document.createElement("option");
-            el.textContent = opt;
-            el.value = opt;
-            select.appendChild(el);
-        };
-
-        if (el.value == opt) {
+        // 가격 낮은 순 정렬 버튼
+        document.getElementById('low').addEventListener('click', function() {
             products.sort(function(a, b) {
                 return a.price - b.price;
-                for (i = 0; i < 3; i++) {
-                    document.getElementById('title' + i).innerHTML = products[i].title;
-                    document.getElementById('price' + i).innerHTML = products[i].price;
-                };
 
             });
-        };
+            for (i = 0; i < 3; i++) {
+                document.getElementById('title' + i).innerHTML = products[i].title;
+                document.getElementById('price' + i).innerHTML = products[i].price;
+            };
+
+        });
+        // 상품명 가나다 순 버튼
+        document.getElementById('abc').addEventListener('click', function() {
+            products.sort(function(a, b) {
+                if (a.title > b.title) {
+                    return 1
+                } else if (a.title < b.title) {
+                    return -1
+                }
+
+            });
+            for (i = 0; i < 3; i++) {
+                document.getElementById('title' + i).innerHTML = products[i].title;
+                document.getElementById('price' + i).innerHTML = products[i].price;
+            };
+        });
+
+        // 300달러 이하만 보기
+        document.getElementById('300').addEventListener('click', function() {
+                    if (products.price < 300) {
+                        var products2 = products.price.filter(a => a > 300);
+
+                }});
     </script>
     <script>
         // 로그인 버튼
