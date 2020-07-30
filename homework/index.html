@@ -159,10 +159,11 @@
 
         // 300달러 이하만 보기
         document.getElementById('300').addEventListener('click', function() {
-                    if (products.price < 300) {
-                        var products2 = products.price.filter(a => a > 300);
-
-                }});
+            products.sort(function(a, b) {
+                return a.price - b.price;
+            });
+            var products2 = products.filter(a => a.price < 300);
+        });
     </script>
     <script>
         // 로그인 버튼
