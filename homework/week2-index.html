@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -257,6 +258,11 @@
 
     <br>(힌트) 방법은 여러가지입니다. 실제 테스트에선 여러분이 작성하신 코드의 작동속도가 빠를 수록 높은 점수를 받습니다.
 
+    <script>
+        function cal (n){
+      return n/2*(n+1);
+    };
+    </script>
 
 
 
@@ -273,11 +279,18 @@
     <script>
         var phone = ['아이폰XR', '아이폰XS', '갤럭시S', 'V30', '블랙베리'];
 
+        function search(a) {
+            if (a == phone[2]) {
+                return "있어요!"
+            } else {
+                return "없어요ㅠㅠ.."
+            }
+        };
 
 
 
-//        search('갤럭시S'); //콘솔창 출력결과 : '있어요!' 
-//        search('아리랑폰'); //콘솔창 출력결과 : '없어요!'
+        search('갤럭시S'); //콘솔창 출력결과 : '있어요!' 
+        search('아리랑폰'); //콘솔창 출력결과 : '없어요!'
     </script>
 
 

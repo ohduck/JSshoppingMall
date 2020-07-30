@@ -101,23 +101,24 @@
   <!--orange라는 클래스는 버튼 하이라이트해주는 클래스, show는 탭 내용 보여주는 클래스-->
   <div class="container mt-5" style="margin-bottom: 500px;">
     <ul class="list">
-      <a class="tab-button" data-id="0">Products</a>
-      <a class="tab-button orange" data-id="1">Info</a>
-      <a class="tab-button" data-id="2">Shipping</a>
+      <a class="tab-button orange" data-id="0" id="0">Products</a>
+      <a class="tab-button" data-id="1" id="1">Info</a>
+      <a class="tab-button" data-id="2" id="2">Shipping</a>
     </ul>
 
-    <div class="tab-content">
+    <div class="tab-content show" id="content0">
       <p>상품설명입니다. Product</p>
     </div>
-    <div class="tab-content show">
+    <div class="tab-content" id="content1">
       <p>상품정보입니다. Information</p>
     </div>
-    <div class="tab-content">
+    <div class="tab-content" id="content2">
       <p>배송정보입니다. Shipping</p>
     </div>
   </div>
 
-<!--  <script src="tab.js"></script>-->
+<script src="tab.js">
+    </script>
 
 
 
